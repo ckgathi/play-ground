@@ -3,7 +3,7 @@ f = open(name, 'r')
 lines = f.readlines()
 landmarks = []
 from edc.map.classes import site_mappers
-mapper = site_mappers.get_registry('tsetsebjwe')()
+mapper = site_mappers.get_registry('mmandunyane')()
 for line in lines:
     line = line.strip()
     line = line.split(',')

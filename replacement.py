@@ -7,12 +7,12 @@ for hs in house_structure:
     helper.household_structure = hs
     if helper.replaceable_household:
         replacebles.append(hs.household.household_identifier)
-        
+
 
 
 
 options = dict(is_dispatched=True, item_app_label='bcpp_household', item_model_name='Plot')
-options.update(producer__settings_key='bcpp052-bhp066')
+options.update(producer__settings_key='bcpp011-bhp066')
 from apps.bcpp_household.helpers import ReplacementHelper
 helper = ReplacementHelper()
 replacebles = []
@@ -21,7 +21,7 @@ for dispatch_item_register in DispatchItemRegister.objects.using('default').filt
     for household_structure in HouseholdStructure.objects.using('default').filter(survey__survey_name=survey.survey_name, household__replaced_by__isnull=True, household__plot__pk=dispatch_item_register.item_pk):
         helper.household_structure = household_structure
         if helper.replaceable_household:
-            replacebles.append(hs.household.household_identifier)
+            replacebles.append(household_structure.household.household_identifier)
 
 
 
